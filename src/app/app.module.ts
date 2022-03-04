@@ -9,12 +9,16 @@ import { MatInputModule } from '@angular/material/input';
 import{ MatCardModule } from '@angular/material/card'
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-
+import { RegistrationFormComponent } from './user-registration/registration-form/registration-form.component';
+import { UserProfileComponent } from './user-registration/user-profile/user-profile.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    RegistrationFormComponent,
+    UserProfileComponent
     ],
   imports: [
     BrowserModule,
@@ -24,7 +28,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatInputModule,
     MatCardModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
