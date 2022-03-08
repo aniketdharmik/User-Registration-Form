@@ -22,4 +22,12 @@ describe('LoginFormComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('email input invalid when empty', () => {
+    expect(component.email.valid).toBeFalsy();
+  });
+
+  it('email input valid when has valid entry', () => {
+    expect(component.email.valid).toBeTrue();
+  });
 });

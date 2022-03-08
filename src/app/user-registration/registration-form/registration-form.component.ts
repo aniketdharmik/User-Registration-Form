@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators } from '@angular/forms';
+import {FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 @Component({
   selector: 'app-registration-form',
   templateUrl: './registration-form.component.html',
@@ -9,10 +9,16 @@ export class RegistrationFormComponent implements OnInit {
 
   public showPassword: boolean = false;
   email = new FormControl('',[Validators.required, Validators.email]);
+  registrationForm!:FormGroup;
 
-  constructor() { }
+  constructor(private regForm:FormBuilder) { }
 
   ngOnInit(): void {
+    this.registrationForm = this.regForm.group({
+      name : [null, Validators.required],
+      email: [null, Validators.required],
+      password : [null, Validators.required]
+    });
   }
 
   public showPasswordVisibility(){

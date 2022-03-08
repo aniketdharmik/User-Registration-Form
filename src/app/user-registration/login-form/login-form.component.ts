@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
@@ -11,9 +11,15 @@ export class LoginFormComponent implements OnInit {
   public showPassword: boolean = false;
   email = new FormControl('',[Validators.required, Validators.email]);
 
-  constructor() { }
+  loginForm!: FormGroup;
+
+  constructor(private login:FormBuilder) { }
 
   ngOnInit(): void {
+    this.loginForm = this.login.group({
+      email: [null, Validators.required],
+      pass:[null, Validators.required]
+  });
   }
 
   public showPasswordVisibility(){
@@ -21,9 +27,9 @@ export class LoginFormComponent implements OnInit {
   }
 
   validateEmail(){
-    if(this.email.hasError('required')){
-      return 'Enter your email address';
-    }
-    return this.email.hasError('email') ? 'Enter valid email address' : '';
-  }
+      if(this.email.hasError('required')){
+        return 'Enter your email address';
+     }
+      return this.email.hasError('email') ? 'Enter valid email address' : '';
+   }
 }
