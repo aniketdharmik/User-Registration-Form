@@ -10,12 +10,14 @@ export class LoginFormComponent implements OnInit {
 
   public showPassword: boolean = false;
   email = new FormControl('',[Validators.required, Validators.email]);
+  user='1';
 
   loginForm!: FormGroup;
 
   constructor(private login:FormBuilder) { }
 
   ngOnInit(): void {
+    localStorage.setItem('SessionUser',this.user)
     this.loginForm = this.login.group({
       email: [null, Validators.required],
       pass:[null, Validators.required]

@@ -15,8 +15,6 @@ export interface ProfileData{
 })
 export class UserProfileComponent implements OnInit {
 
-//profileData: ProfileData[] = [];
-
 profileData:any;
 
 data!: any[];
@@ -27,9 +25,7 @@ data!: any[];
     this.http.get('https://mocki.io/v1/611a3036-4420-48a5-b8da-9b461853cdd2').subscribe(Response => {
       if(Response){
        this.profileData = JSON.parse(JSON.stringify(Response));
-       //this.data = this.profileData;
       }
-      //console.log(this.data);
     });
   }
 }

@@ -42,10 +42,9 @@ describe('LoginFormComponent', () => {
 
   it('Check if Mat Icon button clicked is called in LoginFormComponent', fakeAsync(() => {
     spyOn(component, 'showPasswordVisibility');
-    let button = fixture.debugElement.nativeElement.querySelector('button');
+    let button = fixture.debugElement.nativeElement.querySelector('button')
     button.click();
     tick();
     expect(component.showPasswordVisibility).toHaveBeenCalled();
   }));
-  
 });
